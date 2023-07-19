@@ -1,8 +1,8 @@
-# react-item-download-all
+# listExtension-item-download-all
 
 ## Summary
 
-Short summary on functionality and used technologies.
+List extension - item download all is a SharePoint Framework (SPFx) extension designed to enhance the functionality of SharePoint lists by enabling users to download all attachments associated with a specific list item. This extension simplifies the process of retrieving multiple attachments, streamlining productivity and data management within SharePoint lists.
 
 [picture of the solution in action, if possible]
 
@@ -25,14 +25,14 @@ Short summary on functionality and used technologies.
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| react-item-download-all | Vukasin Jeremic (Ln: vjeremic; Tw: @vjeremic90) |
 
 ## Version history
 
 | Version | Date             | Comments        |
 | ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
+
+| 1.0     | July 19, 2023 | Initial release |
 
 ## Disclaimer
 
@@ -40,27 +40,27 @@ Short summary on functionality and used technologies.
 
 ---
 
-## Minimal Path to Awesome
+## Installation
 
 - Clone this repository
 - Ensure that you are at the solution folder
 - in the command-line run:
-  - **npm install**
-  - **gulp serve**
+  - Run **npm install** to install project dependencies
+  - Run **gulp bundle --ship** and **gulp package-solution --ship** to bundle and package the solution.
+  - Deploy the package to your SharePoint environment
 
-> Include any additional steps as needed.
+
+## Debug
+
+  - In launch.json change site url : **https://enter-your-SharePoint-site/_layouts/workbench.aspx**
+  - Run hosted workbench
+  - In the command-line run **gulp serve**
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
+- Easy Attachment Retrieval: Users can now download all attachments attached to a particular SharePoint list item with just one click, eliminating the need for manual and time-consuming downloads.
+- Time-Saving Solution: With the SharePoint List Attachments Downloader, users can save time and effort by avoiding the manual task of downloading attachments one by one.
 
-This extension illustrates the following concepts:
-
-- topic 1
-- topic 2
-- topic 3
-
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
 
 > Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
 
