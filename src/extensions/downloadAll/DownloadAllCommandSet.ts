@@ -1,11 +1,9 @@
 import { Log } from '@microsoft/sp-core-library';
-import {
-  BaseListViewCommandSet,
-  Command,
-  IListViewCommandSetExecuteEventParameters,
-  ListViewStateChangedEventArgs
-} from '@microsoft/sp-listview-extensibility';
-import { Dialog } from '@microsoft/sp-dialog';
+import { SPHttpClient } from '@microsoft/sp-http';
+import { BaseListViewCommandSet, Command, IListViewCommandSetExecuteEventParameters, IListViewCommandSetListViewUpdatedParameters, ListViewStateChangedEventArgs } from '@microsoft/sp-listview-extensibility';
+
+import { sp } from "@pnp/sp/presets/all";
+import * as JSZip from "jszip";
 
 /**
  * If your command set uses the ClientSideComponentProperties JSON input,
@@ -18,9 +16,41 @@ export interface IDownloadAllCommandSetProperties {
   sampleTextTwo: string;
 }
 
+interface SP {
+  Attachment: {
+    ServerRelativeUrl: string;
+    FileName: string;
+  }
+}
+
 const LOG_SOURCE: string = 'DownloadAllCommandSet';
 
 export default class DownloadAllCommandSet extends BaseListViewCommandSet<IDownloadAllCommandSetProperties> {
+
+  private _downloadAttachmentZip = async (itemAttachments: SP["Attachment"][]) => {
+    const zip = new JSZip();
+    const files = await Promise.all(
+      itemAttachments.map(async attachment => {
+        const response = await this.context.spHttpClient.get(attachment.ServerRelativeUrl, SPHttpClient.configurations.v1);
+        const blob = await response.blob();
+        return { data: blob, name: attachment.FileName };
+      })
+    );
+    files.forEach(file => {
+      zip.file(file.name, file.data);
+    });
+    const content = await zip.generateAsync({ type: 'blob' });
+    const downloadLink = document.createElement('a');
+    downloadLink.download = `attachments.zip`;
+    downloadLink.href = URL.createObjectURL(content);
+    downloadLink.click();
+  }
+  public onListViewUpdated(event: IListViewCommandSetListViewUpdatedParameters): void {
+    const downloadCommand: Command = this.tryGetCommand('COMMAND_1');
+    if (downloadCommand) {
+      downloadCommand.visible = event.selectedRows.length > 0;
+    }
+  }
 
   public onInit(): Promise<void> {
     Log.info(LOG_SOURCE, 'Initialized DownloadAllCommandSet');
@@ -34,22 +64,29 @@ export default class DownloadAllCommandSet extends BaseListViewCommandSet<IDownl
     return Promise.resolve();
   }
 
-  public onExecute(event: IListViewCommandSetExecuteEventParameters): void {
+  public async onExecute(event: IListViewCommandSetExecuteEventParameters): Promise<void> {
     switch (event.itemId) {
       case 'COMMAND_1':
-        Dialog.alert(`${this.properties.sampleTextOne}`).catch(() => {
-          /* handle error */
-        });
-        break;
-      case 'COMMAND_2':
-        Dialog.alert(`${this.properties.sampleTextTwo}`).catch(() => {
-          /* handle error */
-        });
-        break;
-      default:
-        throw new Error('Unknown command');
-    }
+        const selectedItems = event.selectedRows;
+      if (selectedItems.length === 1) {
+        // Get the ID of the selected item
+        const listId = this.context.pageContext.list.id.toString();
+        const itemId = selectedItems[0].getValueByName("ID");
+        console.log("Selected item ID: ", itemId);
+    
+    const itemAttachments: SP["Attachment"][] = await sp.web.lists.getById(listId).items.getById(itemId).attachmentFiles.get();
+    await this._downloadAttachmentZip(itemAttachments); 
   }
+      break;
+      case 'COMMAND_2':   
+     
+      break;
+    default:
+      throw new Error('Unknown command');
+  }
+}
+
+
 
   private _onListViewStateChanged = (args: ListViewStateChangedEventArgs): void => {
     Log.info(LOG_SOURCE, 'List view state changed');
