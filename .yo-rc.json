@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.15.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.4.1"
+    },
+    "version": "1.16.0",
+    "libraryName": "react-item-download-all",
+    "libraryId": "bd97c177-12da-4983-90ea-774c290cebb4",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "react-item-download-all",
+    "solutionShortDescription": "react-item-download-all description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ListViewCommandSet"
+  }
+}

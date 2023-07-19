@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "download-all-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/downloadAll/DownloadAllCommandSet.js",
+          "manifest": "./src/extensions/downloadAll/DownloadAllCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DownloadAllCommandSetStrings": "lib/extensions/downloadAll/loc/{locale}.js"
+  }
+}
