@@ -8,7 +8,7 @@ List extension - item download all is a SharePoint Framework (SPFx) extension de
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.13-green.svg)
+![version](https://img.shields.io/badge/version-1.16-green.svg)
 
 ## Applies to
 
@@ -58,11 +58,11 @@ List extension - item download all is a SharePoint Framework (SPFx) extension de
 
 ## Features
 
-- Easy Attachment Retrieval: Users can now download all attachments attached to a particular SharePoint list item with just one click, eliminating the need for manual and time-consuming downloads.
-- Time-Saving Solution: With the SharePoint List Attachments Downloader, users can save time and effort by avoiding the manual task of downloading attachments one by one.
+  - Easy Attachment Retrieval: Users can now download all attachments attached to a particular SharePoint list item with just one click, eliminating the need for manual and time-consuming downloads.
+  - Time-Saving Solution: With the SharePoint List Attachments Downloader, users can save time and effort by avoiding the manual task of downloading attachments one by one.
 
 
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
+
 
 ## References
 
