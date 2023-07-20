@@ -4,7 +4,7 @@
 
 List extension - item download all is a SharePoint Framework (SPFx) extension designed to enhance the functionality of SharePoint lists by enabling users to download all attachments associated with a specific list item. This extension simplifies the process of retrieving multiple attachments, streamlining productivity and data management within SharePoint lists.
 
-(./img/1.png)
+(https://github.com/vjeremic90/listExtension-item-downloadAll/tree/main/img/1.png)
 
 ## Used SharePoint Framework Version
 
