@@ -19,7 +19,9 @@ List extension - item download all is a SharePoint Framework (SPFx) extension de
 
 ## Prerequisites
 
-> Any special pre-requisites?
+> SPFx version : 1.16
+> Node version : 16.15
+> Global/Local app catalog
 
 ## Solution
 

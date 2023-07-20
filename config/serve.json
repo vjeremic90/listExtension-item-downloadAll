@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://jvspdev.sharepoint.com/sites/CollabDays2023/Lists/GitHubTest/AllItems.aspx",
       "customActions": {
         "d1575b71-7a8f-4454-b43e-2894d35340ee": {
           "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
@@ -16,7 +16,7 @@
       }
     },
     "downloadAll": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://jvspdev.sharepoint.com/sites/CollabDays2023/Lists/GitHubTest/AllItems.aspx",
       "customActions": {
         "d1575b71-7a8f-4454-b43e-2894d35340ee": {
           "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
