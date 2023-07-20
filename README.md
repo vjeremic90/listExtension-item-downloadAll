@@ -30,9 +30,9 @@ List extension - item download all is a SharePoint Framework (SPFx) extension de
 
 ## Prerequisites
 
-> SPFx version : 1.16
-> Node version : 16.15
-> Global/Local app catalog
+- SPFx version : 1.16
+- Node version : 16.15
+- Global/Local app catalog
 
 ## Solution
 
